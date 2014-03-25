@@ -2,3 +2,49 @@ Project to develop an open source Judo club management system.
 
 Contact: lw@judocoach.com
 
+
+
+TODO:
+
+* User is able to register
+* User is able to login
+* User is able to add a member
+* User is able to create a session
+* User is able to mark a member as attending a session
+* User is able to record a members NGB BJA license number and expiry date
+* User is able to access a session and add multiple members
+* User is able to access a members page and add multiple sesisons
+* User is able to access a report of members who have not attended a session in the last x weeks
+* User is able to send a letter to a member who has not attended for x weeks
+* User is able to access a report of members who's NGB license is due to expire in the next x weeks
+* User is able to send a letter to a member who's NGB license is due to expire in the next x weeks.
+* User is able to record payment for term fees by member
+* User is able to record payment for competition entry fees by member 
+* User is able to record payment for grading fees by member
+
+Notes:
+
+When we say sending we mean entirely automated via a service. So to a postal address.
+
+
+Member Data:
+* First name
+* Surname
+* Date of birth
+* NGB License number
+* NGB license expiry date
+* Sessions -> Record all sessions attended and display latest
+* Grades -> Record all grades and display latest (include dates obtained)
+* Competitions -> Record all competition entries and results (possibly head to heads)
+
+* Emergency Contact Name
+* Emergency contact phone
+* Emergency contact relationship
+
+* Postal address
+* Postcode
+* Mobile number
+* Home phone
+* email
+* social media?? (i.e. twitter handles etc)
+
