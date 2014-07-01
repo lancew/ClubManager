@@ -22,6 +22,17 @@ TODO:
 * User is able to record payment for competition entry fees by member 
 * User is able to record payment for grading fees by member
 
+Promotion Engine
+* Create a list of media contacts
+* Create a list of brochure/poster outlets
+* Print brochure and send to third party
+
+* Any club member can "suggest" a new media outlet
+* Any club member can "suggest" a new brochure outlet
+
+* New club records -> news stories incl. sending via email and paper etc
+* Competition results -> news stories
+
 Notes:
 
 When we say sending we mean entirely automated via a service. So to a postal address.
