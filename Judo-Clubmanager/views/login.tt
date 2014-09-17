@@ -1,0 +1,36 @@
+
+<div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Menu</h3>
+            <ul class="links">
+
+              <li><a href="/login">Login</a></li>
+
+            </ul>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Judo Clubmanager</h1>
+          <h2>A work in progress</h2>
+        </div>
+
+        <div id="getting-started">
+          <form method="post">
+            <input type="text" name="user"></input>
+            <input type="password" name="pass"></input>
+            <input type="hidden" name="path" value="<% path %>"></input>
+            <input type="submit"></input>
+          </form>
+        </div>
+
+        </div>
+      </div>
+    </div>

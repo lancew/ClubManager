@@ -1,0 +1,33 @@
+
+<div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Menu</h3>
+            <ul class="links">
+                <li><a href="/admin/clubs">Clubs</a></li>
+                <li><a href="/admin/clubs/add">Add Club</a></li>
+
+              <li><a href="/logout">Logout</a></li>
+
+            </ul>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Judo Clubmanager</h1>
+          <h2>Admin>Clubs</h2>
+        </div>
+
+        <div id="getting-started">
+            <% clubs %>
+        </div>
+
+        </div>
+      </div>
+    </div>
