@@ -5,11 +5,15 @@
           <li>
             <h3>Menu</h3>
             <ul class="links">
-                <li><a href="/clubs">Clubs</a></li>
-                <li><a href="/club/add">Add Club</a></li>
+                <li><a href="/admin/clubs">Clubs</a></li>
 
               <li><a href="/logout">Logout</a></li>
 
+            </ul>
+            <hr>
+            <ul class="links">
+            <li><a href = "/admin/clubs/[% club.ClubID %]/members">Members List</a></li>
+            <li><a href = "/admin/clubs/[% club.ClubID %]/members/add">Add Member</a></li>
             </ul>
           </li>
 
@@ -21,10 +25,24 @@
       <div id="content">
         <div id="header">
           <h1>Judo Clubmanager</h1>
-          <h2>Admin>Clubs</h2>
+          <h2>Admin>Clubs>[% club.ClubName %]</h2>
         </div>
 
         <div id="getting-started">
+        <h1 style="text-align:center;">[% club.ClubName %]</h1>
+        <hr width="50%">
+        <h1>Overview</h1>
+        <ul>
+            <li>Total Membership: </li>
+            <li>Active Membership this week: </li>
+            <li>Active Membership this month: </li>
+            <li>New Members This week: </li>
+            <li>New Members This month: </li>
+            <li>Sessions this week: </li>
+            <li>Sessions this month: </li>
+
+        </ul>
+
 
         </div>
 

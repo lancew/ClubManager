@@ -5,8 +5,8 @@
           <li>
             <h3>Menu</h3>
             <ul class="links">
-                <li><a href="/clubs">Clubs</a></li>
-                <li><a href="/club/add">Add Club</a></li>
+                <li><a href="/admin/clubs">Clubs</a></li>
+                <li><a href="/admin/club/add">Add Club</a></li>
 
               <li><a href="/logout">Logout</a></li>
 
@@ -25,11 +25,22 @@
         </div>
 
         <div id="getting-started">
+            [% IF !club %]
             <form method="post">
+                Club Name: <input type="text" name="ClubName"><br />
+                Address: <input type="text" name="Address"><br />
+                City: <input type="text" name="City"><br />
 
-                
                 <input type="submit">
             </form>
+            [% ELSE %]
+                <h2>[% club.ClubName %] Added</h2>
+                [% USE Dumper%]
+                [% Dumper.dump(club) %]
+
+            [% END %]
+
+
 
 
         </div>

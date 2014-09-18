@@ -24,7 +24,7 @@
         </div>
 
         <div id="getting-started">
-        <h2><% msg %></h2>
+        <h2>[% msg %]</h2>
 
         <p>This is where you can intialise the database and/or update the schema</p>
         <form method="post">

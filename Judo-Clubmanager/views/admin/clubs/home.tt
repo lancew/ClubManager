@@ -25,7 +25,14 @@
         </div>
 
         <div id="getting-started">
-            <% clubs %>
+            <h2>Clubs:</h2>
+            <ul>
+            [% FOREACH club IN clubs %]
+                <li>
+                    <a href="/admin/clubs/[% club.0 %]">[% club.1 %]</a>
+                </li>
+            [% END %]
+            </ul>
         </div>
 
         </div>

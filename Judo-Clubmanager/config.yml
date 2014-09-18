@@ -18,13 +18,13 @@ charset: "UTF-8"
 # simple: default and very basic template engine
 # template_toolkit: TT
 
-template: "simple"
+#template: "simple"
 
-#template: "template_toolkit"
-#engines:
-#  template_toolkit:
-#    start_tag: '[%'
-#    end_tag:   '%]'
+template: "template_toolkit"
+engines:
+  template_toolkit:
+    start_tag: '[%'
+    end_tag:   '%]'
 
 # For session support enable the following line and see Dancer::Session
 # session: "YAML"
@@ -41,9 +41,9 @@ plack_middlewares:
 plugins:
     Database:
         connections:
-            users:
+            clubs:
                 driver: "SQLite"
-                database: "data/users.sqlite"
+                database: "data/clubs.sqlite"
     Auth::Extensible:
         exit_page: '/'
         realms:
