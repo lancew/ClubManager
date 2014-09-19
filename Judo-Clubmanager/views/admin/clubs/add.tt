@@ -27,7 +27,7 @@
         <div id="getting-started">
             [% IF !club %]
             <form method="post">
-                Club Name: <input type="text" name="ClubName"><br />
+                Club Name: <input type="text" name="Clubname"><br />
                 Address: <input type="text" name="Address"><br />
                 City: <input type="text" name="City"><br />
 

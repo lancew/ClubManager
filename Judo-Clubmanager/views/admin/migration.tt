@@ -24,13 +24,15 @@
         </div>
 
         <div id="getting-started">
+
+            <p>Database Schema version: [% version %]</p>
+
         <h2>[% msg %]</h2>
 
         <p>This is where you can intialise the database and/or update the schema</p>
         <form method="post">
-            <input type="submit" value="Initialise Database">
+            <input type="submit" value="Run Database Migration">
         </form>
-        
 
         </div>
 

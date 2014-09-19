@@ -3,39 +3,55 @@ package Judo::Database;
 use strict;
 use warnings;
 
-require Exporter;
+our ( @ISA, @EXPORT_OK );
 
-our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(connect_db init_db);
-
-use Dancer ':syntax';
-use Dancer::Plugin::Database;
-
-
-
-sub connect_db {
-    my $clubs_dbh = database('clubs');
+BEGIN {
+    require Exporter;
+    @ISA       = qw(Exporter);
+    @EXPORT_OK = qw(connect_db init_db);    # symbols to export on request
 }
 
+use DBI;
+use DBIx::Migration;
 
-sub init_db {
-  my $db = connect_db();
-  #my $schema = read_file('./schema.sql');
-$db->do('DROP TABLE Clubs');
-$db->do('CREATE TABLE Clubs
-(
-ClubID INTEGER PRIMARY KEY,
-ClubName varchar(255),
-Address varchar(255),
-City varchar(255)
-);
-') or die $db->errstr;
+sub connect_db {
+    my $clubs_dbh
+        = DBI->connect( "dbi:SQLite:dbname=data/clubmanager.db", "", "" );
+}
 
-$db->do("
-INSERT INTO Clubs (ClubID,ClubName,Address,City)
-VALUES (1,'Team Solent Judo','St Marys Leisure Centre','Southampton');
-" ) or die $db->errstr;
+sub insert {
+    my %args = @_;
+    my $db = connect_db();
 
+    my @values = values %args;
+
+    $db->do( 'INSERT INTO Clubs (ClubName,Address,City) VALUES (?,?,?)',
+        undef, @values );
+
+}
+
+sub version {
+    my $m = DBIx::Migration->new(
+        {
+            dsn => 'dbi:SQLite:data/clubmanager.db',
+            dir => 'data/migrations'
+        }
+    );
+    return $m->version;
+}
+
+sub migration {
+    my $version = 1;
+    my $m = DBIx::Migration->new(
+        {
+            dsn => 'dbi:SQLite:data/clubmanager.db',
+            dir => 'data/migrations'
+        }
+    );
+
+    $version = $m->version;
+    $m->migrate(++$version);
+    return $m->version;
 }
 
 

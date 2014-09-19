@@ -1,0 +1,53 @@
+
+<div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Menu</h3>
+            <ul class="links">
+                <li><a href="/admin/clubs">Clubs</a></li>
+                <li><a href="/admin/clubs/[% club %]">Back to club</a></li>
+
+              <li><a href="/logout">Logout</a></li>
+
+            </ul>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Judo Clubmanager</h1>
+          <h2>Admin>Clubs</h2>
+        </div>
+
+        <div id="getting-started">
+
+            <form method="post">
+First name:<input name='Firstname' type='text'><br />
+Surname:<input name='Surname' type='text>
+Date of Birth:<input name='DateOfBirth' type='date'><br />
+Address:<input name='PostalAddress' type='text'><br />
+Postcode:<input name='Postcode' type='text'><br />
+Mobile Number:<input name='MobileNumber' type='tel'><br />
+Home Phone Number:<input name='HomePhone' type='tel'><br />
+Email:<input name='Email' type='email'><br />
+NGB License number:<input name='NGBLicenseNumber' type='text'><br />
+NGB License Expiry Date:<input name='NGBLicenseExpiryDate' type='date'><br />
+Emergency Contact Name:<input name='EmergencyContactName'  type='text'><br />
+Emergency Contact phone number:<input name='EmergencyContactPhone' type='tel'><br />
+Relationship with Emergency Contact:<input name='EmergencyContactRelationship' type='text'><br />
+            <input type="submit">
+
+
+[% USE Dumper %]
+[% Dumper.dump(club) %]
+
+        </div>
+
+        </div>
+      </div>
+    </div>

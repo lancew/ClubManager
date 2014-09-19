@@ -7,7 +7,7 @@
             <ul class="links">
 
               <li><a href="/admin/clubs">Clubs</a></li>
-              <li><a href="/admin/initdb">InitDB</a></li>
+              <li><a href="/admin/migration">DB Migration</a></li>
               <li></li>
               <li><a href="/logout">Logout</a></li>
 

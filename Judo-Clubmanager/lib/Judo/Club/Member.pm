@@ -1,4 +1,4 @@
-package Judo::Club;
+package Judo::Club::Member;
 
 use strict;
 use warnings;
@@ -11,11 +11,12 @@ our @clubs;
 sub add {
     my %args = @_;
 
-    Judo::Database::insert(
-        Clubname => $args{Clubname},
-        Address  => $args{Address},
-        City     => $args{City},
-    );
+
+    #Judo::Database::insert_member(
+#        Clubname => $args{Clubname},
+#        Address  => $args{Address},
+#        City     => $args{City},
+#    );
 
     return %args;
 }
