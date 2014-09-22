@@ -21,6 +21,24 @@ sub connect_db {
 
 sub insert {
     my %args = @_;
+
+    my $table = $args{table};
+    my %data =  %{ $args{data} };
+
+    my @fields = keys %data;
+    my @values = values %data;
+
+    my $sql = sprintf "insert into %s (%s) values (%s)",
+        $table, join(",", @fields), join(",", ("?")x@fields);
+
+    my $db = connect_db();
+    my $sth = $db->do($sql,undef,@values);
+
+    return %args;
+}
+
+sub insert_club {
+    my %args = @_;
     my $db = connect_db();
 
     my @values = values %args;

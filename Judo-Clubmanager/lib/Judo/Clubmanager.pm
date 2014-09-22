@@ -18,7 +18,7 @@ get '/admin' => require_role Admin => sub {
 
 # Admin Clubs
 get '/admin/clubs' => require_role Admin => sub {
-    my @clubs = Judo::Club::get_clubs();
+    my @clubs = Judo::Club::list();
     template 'admin/clubs/home', { clubs => @clubs, };
 };
 
@@ -40,6 +40,12 @@ get '/admin/clubs/:club' => require_role Admin => sub {
 };
 
 # Members
+get '/admin/clubs/:club/members' => require_role Admin => sub {
+    my @members = Judo::Club::Member::list( param('club') );
+    template 'admin/clubs/members/list',
+    { club_id => param('club'), members => @members };
+};
+
 get '/admin/clubs/:club/members/add' => require_role Admin => sub {
     template 'admin/clubs/members/add',
     { club_id => param('club') };
