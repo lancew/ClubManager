@@ -11,10 +11,9 @@ our @clubs;
 sub add {
     my %args = @_;
 
-    Judo::Database::insert_club(
-        Clubname => $args{Clubname},
-        Address  => $args{Address},
-        City     => $args{City},
+    Judo::Database::insert(
+        table    => 'clubs',
+        data => \%args
     );
 
     return %args;
@@ -22,9 +21,9 @@ sub add {
 
 sub list {
     my $db = connect_db();
-    @clubs = $db->selectall_arrayref('SELECT * FROM Clubs');
+    my $clubs = $db->selectall_hashref('SELECT * FROM Clubs', 'ClubID');
 
-    return @clubs;
+    return $clubs;
 }
 
 sub get {
