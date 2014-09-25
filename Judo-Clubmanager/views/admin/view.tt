@@ -33,7 +33,7 @@
         <hr width="50%">
         <h1>Overview</h1>
         <ul>
-            <li>Total Membership: [% members %] </li>
+            <li>Total Membership: </li>
             <li>Active Membership this week: </li>
             <li>Active Membership this month: </li>
             <li>New Members This week: </li>

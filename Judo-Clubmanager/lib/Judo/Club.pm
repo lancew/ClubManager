@@ -30,10 +30,13 @@ sub list {
 sub get {
     my $id = shift;
     my $db = connect_db();
-    $club = $db->selectrow_hashref(
+    my $club = $db->selectrow_hashref(
         'SELECT * FROM Clubs WHERE ClubID=' . $db->quote($id) );
+    my $members = $db->selectrow_array(
+        'SELECT count(*) FROM members WHERE  ClubID=' . $db->quote($id) 
+    );
 
-    return $club;
+    return (club => $club, members => $members);
 }
 
 1;

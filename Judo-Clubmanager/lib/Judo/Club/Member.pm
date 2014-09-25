@@ -22,12 +22,12 @@ sub add {
 }
 
 sub get {
-    my $id = shift;
+    my $member_id = shift;
     my $db = connect_db();
-    $club = $db->selectrow_hashref(
-        'SELECT * FROM Members WHERE MemberID=' . $db->quote($id) );
+    my $member = $db->selectrow_hashref(
+        'SELECT * FROM Members WHERE MemberID=' . $db->quote($member_id) );
 
-    return $club;
+    return $member;
 }
 
 sub list {
