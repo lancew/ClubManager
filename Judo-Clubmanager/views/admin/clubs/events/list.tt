@@ -1,0 +1,40 @@
+
+<div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Menu</h3>
+            <ul class="links">
+                <li><a href="/admin/clubs/[% club_id %]/events/add">Add Event</a></li>
+
+              <li><a href="/logout">Logout</a></li>
+
+            </ul>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Judo Clubmanager</h1>
+          <h2>Admin>Clubs</h2>
+        </div>
+
+        <div id="getting-started">
+            <h2>Events:</h2>
+            <ul>
+            [% FOREACH event IN events %]
+                <li>
+                    <a href="/admin/clubs/[% club_id %]/events/[% event.value.EventID %]">[% event.value.Name %]</a>
+
+                </li>
+            [% END %]
+            </ul>
+        </div>
+
+        </div>
+      </div>
+    </div>

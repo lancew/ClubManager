@@ -1,0 +1,44 @@
+
+<div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Menu</h3>
+            <ul class="links">
+                <li><a href="/admin/clubs">Clubs</a></li>
+                <li><a href="/admin/clubs/[% club %]">Back to club</a></li>
+
+              <li><a href="/logout">Logout</a></li>
+
+            </ul>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Judo Clubmanager</h1>
+          <h2>Add Event</h2>
+        </div>
+
+        <div id="getting-started">
+
+            <form method="post">
+Date of event:<input name='EventDate' type='date'><br />
+Name:<input name='Name' type='text'><br />
+Type:(default "1" for training session for now)<br />
+Description:<input name='Description' type='text'><br />
+Status:(default "1" for scheduled for now)<br />
+Active:(default "1" for Active for now)<br />
+<input name='ClubID' type='hidden' value='[% club_id %]'>
+
+            <input type="submit">
+
+        </div>
+
+        </div>
+      </div>
+    </div>
