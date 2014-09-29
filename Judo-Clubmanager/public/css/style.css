@@ -4,9 +4,7 @@ margin: 0;
 margin-bottom: 25px;
 padding: 0;
 background-color: #ddd;
-background-image: url("/images/perldancer-bg.jpg");
-background-repeat: no-repeat;
-background-position: top left;
+
 
 font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
 font-size: 13px;
@@ -54,7 +52,7 @@ padding-right: 30px;
 
 
 #header {
-background-image: url("/images/perldancer.jpg");
+background-image: url("/images/logo_60_trans.png");
 background-repeat: no-repeat;
 background-position: top left;
 height: 64px;

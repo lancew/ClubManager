@@ -38,7 +38,9 @@ get '/admin/clubs/:club' => require_role Admin => sub {
 
     my %data = Judo::Club::get( param('club') );
 
-    template 'admin/clubs/view', { club => $data{'club'}, members => $data{'members'} };
+    template 'admin/clubs/view', {
+        data => \%data,
+    };
 };
 
 # Members

@@ -12,12 +12,12 @@
             </ul>
             <hr>
             <ul class="links">
-            <li><a href = "/admin/clubs/[% club.ClubID %]/members">Members List</a></li>
-            <li><a href = "/admin/clubs/[% club.ClubID %]/events">Events List</a></li>
+            <li><a href = "/admin/clubs/[% data.club.ClubID %]/members">Members List</a></li>
+            <li><a href = "/admin/clubs/[% data.club.ClubID %]/events">Events List</a></li>
             </ul>
             <hr>
             <ul>
-            <li><a href = "/admin/clubs/[% club.ClubID %]/members/add">Add Member</a></li>
+            <li><a href = "/admin/clubs/[% data.club.ClubID %]/members/add">Add Member</a></li>
             </ul>
           </li>
 
@@ -29,21 +29,22 @@
       <div id="content">
         <div id="header">
           <h1>Judo Clubmanager</h1>
-          <h2>Admin>Clubs>[% club.ClubName %]</h2>
+          <h2>Admin>Clubs>[% data.club.ClubName %]</h2>
         </div>
 
         <div id="getting-started">
-        <h1 style="text-align:center;">[% club.ClubName %]</h1>
+        <h1 style="text-align:center;">[% data.club.ClubName %]</h1>
         <hr width="50%">
         <h1>Overview</h1>
         <ul>
-            <li>Total Membership: [% members %] </li>
+            <li>Total Membership: [% data.members %] </li>
             <li>Active Membership this week: </li>
             <li>Active Membership this month: </li>
             <li>New Members This week: </li>
             <li>New Members This month: </li>
-            <li>Sessions this week: </li>
+            <li>Sessions this week: [% data.sessions_week %] </li>
             <li>Sessions this month: </li>
+            <li>Total Events: [% data.events %]</li>
 
         </ul>
 

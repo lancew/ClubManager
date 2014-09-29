@@ -13,6 +13,14 @@ sub list {
     return $events;
 }
 
+sub list_training_sessions {
+    my $id = shift;
+    my $db = connect_db();
+    my $events = $db->selectall_hashref('SELECT * FROM Events WHERE Type=1 AND ClubID='.$db->quote($id),'EventID');
+
+    return $events;
+}
+
 sub add {
     my %args = @_;
     $args{ClubID} = delete $args{club};
