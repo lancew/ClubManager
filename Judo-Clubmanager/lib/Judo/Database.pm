@@ -37,6 +37,27 @@ sub insert {
     return %args;
 }
 
+sub remove {
+    my %args = @_;
+    my $table = $args{table};
+    my %data =  %{ $args{data} };
+
+    my @fields = keys %data;
+    my @values = values %data;
+
+    if ($data{MemberID}) 
+    {
+        my $sql = sprintf "DELETE FROM %s WHERE %s = %s",
+            $table, 'MemberID', $data{MemberID};
+
+        my $db = connect_db();
+        my $sth = $db->do($sql);
+    }
+
+    return %args;
+}
+
+
 sub insert_club {
     my %args = @_;
     my $db = connect_db();

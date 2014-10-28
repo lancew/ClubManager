@@ -5,7 +5,7 @@
           <li>
             <h3>Menu</h3>
             <ul class="links">
-                <li><a href="/admin/clubs/[% club_id %]/events/add">Add Event</a></li>
+                <li><a href="/admin/club/[% club_id %]/events/add">Add Event</a></li>
 
               <li><a href="/logout">Logout</a></li>
 
@@ -28,7 +28,7 @@
             <ul>
             [% FOREACH event IN events %]
                 <li>
-                    [% event.value.EventDate %] <a href="/admin/clubs/[% club_id %]/events/[% event.value.EventID %]">[% event.value.Name %]</a>
+                    [% event.value.EventDate %] <a href="/admin/club/[% club_id %]/event/[% event.value.EventID %]">[% event.value.Name %]</a>
 
                 </li>
             [% END %]

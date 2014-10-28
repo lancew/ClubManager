@@ -6,7 +6,7 @@
             <h3>Menu</h3>
             <ul class="links">
                 <li><a href="/admin/clubs">Clubs</a></li>
-                <li><a href="/admin/clubs/[% club %]">Back to club</a></li>
+                <li><a href="/admin/club/[% club %]">Back to club</a></li>
 
               <li><a href="/logout">Logout</a></li>
 

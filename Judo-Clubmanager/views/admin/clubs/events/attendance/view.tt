@@ -42,16 +42,13 @@
                         [% IF attendees.$val %]checked[%END%]
 
                     >
-                    [% attendees.$val.MemberID %]
                     [% member.value.Surname %], [% member.value.Firstname%]
                 </li>
             [% END %]
             </ul>
-
             <input type="submit">
             </form>
         </div>
-
         </div>
       </div>
     </div>

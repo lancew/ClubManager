@@ -29,7 +29,7 @@
             <ul>
             [% FOREACH club IN clubs %]
                 <li>
-                    <a href="/admin/clubs/[% club.value.ClubID %]">[% club.value.ClubName %]</a>
+                    <a href="/admin/club/[% club.value.ClubID %]">[% club.value.ClubName %]</a>
                 </li>
             [% END %]
             </ul>

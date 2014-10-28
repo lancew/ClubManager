@@ -34,7 +34,7 @@ post '/admin/clubs/add' => require_role Admin => sub {
     template 'admin/clubs/add', { club => \%club };
 };
 
-get '/admin/clubs/:club' => require_role Admin => sub {
+get '/admin/club/:club' => require_role Admin => sub {
 
     my %data = Judo::Club::get( param('club') );
 
@@ -45,24 +45,24 @@ get '/admin/clubs/:club' => require_role Admin => sub {
 
 # Members
 # ------------------------------------------------------------------
-get '/admin/clubs/:club/members' => require_role Admin => sub {
+get '/admin/club/:club/members' => require_role Admin => sub {
     my @members = Judo::Club::Member::list( param('club') );
     template 'admin/clubs/members/list',
     { club_id => param('club'), members => @members };
 };
 
-get '/admin/clubs/:club/members/add' => require_role Admin => sub {
+get '/admin/club/:club/member/add' => require_role Admin => sub {
     template 'admin/clubs/members/add',
     { club_id => param('club') };
 };
 
-get '/admin/clubs/:club/members/:member_id' => require_role Admin => sub {
+get '/admin/club/:club/member/:member_id' => require_role Admin => sub {
     my $member = Judo::Club::Member::get( param('member_id') );
     template '/admin/clubs/members/view',
     { club_id => param('club'), member => $member };
 };
 
-post '/admin/clubs/:club/members/add' => require_role Admin => sub {
+post '/admin/club/:club/member/add' => require_role Admin => sub {
     my %args = params();
     my %club = Judo::Club::Member::add(%args);
     template 'admin/clubs/members/add', { %args };
@@ -71,7 +71,7 @@ post '/admin/clubs/:club/members/add' => require_role Admin => sub {
 
 # Events
 # -----------------------------------------------
-get '/admin/clubs/:club/events' => require_role Admin => sub {
+get '/admin/club/:club/events' => require_role Admin => sub {
     my $events = Judo::Club::Event::list( param('club') );
     template 'admin/clubs/events/list',
     {
@@ -80,25 +80,25 @@ get '/admin/clubs/:club/events' => require_role Admin => sub {
     };
 };
 
-get '/admin/clubs/:club/events/add' => require_role Admin => sub {
+get '/admin/club/:club/event/add' => require_role Admin => sub {
     template 'admin/clubs/events/add',
     {
         club_id => param('club'),
     };
 };
-post '/admin/clubs/:club/events/add' => require_role Admin => sub {
+post '/admin/club/:club/event/add' => require_role Admin => sub {
     my %args = params();
     my %event = Judo::Club::Event::add(%args);
-    template 'admin/clubs/events/add', { %args };
+    template 'admin/clubs/event/add', { %args };
 };
 
-get '/admin/clubs/:club/events/:event_id' => require_role Admin => sub {
+get '/admin/club/:club/event/:event_id' => require_role Admin => sub {
     my $event = Judo::Club::Event::get( param('event_id') );
     template '/admin/clubs/events/view',
     { club_id => param('club'), event => $event };
 };
 
-get '/admin/clubs/:club/events/:event_id/attendance' => require_role Admin => sub {
+get '/admin/club/:club/event/:event_id/attendance' => require_role Admin => sub {
     my $event = Judo::Club::Event::get( param('event_id') );
     my @members = Judo::Club::Member::list( param('club') );
     my $attendees = Judo::Club::Event::attendees(param('event_id'));
@@ -110,17 +110,34 @@ get '/admin/clubs/:club/events/:event_id/attendance' => require_role Admin => su
     };
 };
 
-post '/admin/clubs/:club/events/:event_id/attendance' => require_role Admin => sub {
+post '/admin/club/:club/event/:event_id/attendance' => require_role Admin => sub {
     my %args = params();
     my $attendees = Judo::Club::Event::attendees(param('event_id'));
+    my $members = Judo::Club::Member::list( param('club') );
+
+    # First remove members not in the args list
+    for (keys %$members)
+    {
+        unless ($_ ~~ %args)
+        {
+            Judo::Club::Member::remove_attend(
+                EventID => param('event_id'),
+                MemberID => $_,
+            );
+        }
+
+    }
+
 
     for ( keys %args)
     {
         if($_ =~ /^\d+$/)
         {
+
             # Skip to next if already in the attendees list.
             next if $_ ~~ $attendees;
 
+            # Else add member attendance
             Judo::Club::Member::attended(
                 EventID  => param('event_id'),
                 MemberID => $_,
@@ -130,13 +147,12 @@ post '/admin/clubs/:club/events/:event_id/attendance' => require_role Admin => s
     }
 
     my $event = Judo::Club::Event::get( param('event_id') );
-    my @members = Judo::Club::Member::list( param('club') );
-    my $attendees = Judo::Club::Event::attendees(param('event_id'));
+    $attendees = Judo::Club::Event::attendees(param('event_id'));
 
     template '/admin/clubs/events/attendance/view',
     {
         event => $event,
-        members => @members,
+        members => $members,
         attendees => $attendees,
         args => \%args,
     };

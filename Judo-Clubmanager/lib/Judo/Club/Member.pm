@@ -25,7 +25,15 @@ sub attended {
     Judo::Database::insert(
         table => 'attendance',
         data  => \%args,
-    )
+    );
+}
+
+sub remove_attend {
+    my %args = @_;
+    Judo::Database::remove(
+        table => 'attendance',
+        data  => \%args,
+    ); 
 }
 
 sub get {
@@ -40,9 +48,9 @@ sub get {
 sub list {
     my $id = shift;
     my $db = connect_db();
-    my @members = $db->selectall_hashref('SELECT * FROM Members WHERE ClubID='.$db->quote($id),'MemberID');
+    my $members = $db->selectall_hashref('SELECT * FROM Members WHERE ClubID='.$db->quote($id),'MemberID');
 
-    return @members;
+    return $members;
 }
 
 

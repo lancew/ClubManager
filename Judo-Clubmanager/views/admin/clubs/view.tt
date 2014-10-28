@@ -12,12 +12,12 @@
             </ul>
             <hr>
             <ul class="links">
-            <li><a href = "/admin/clubs/[% data.club.ClubID %]/members">Members List</a></li>
-            <li><a href = "/admin/clubs/[% data.club.ClubID %]/events">Events List</a></li>
+            <li><a href = "/admin/club/[% data.club.ClubID %]/members">Members List</a></li>
+            <li><a href = "/admin/club/[% data.club.ClubID %]/events">Events List</a></li>
             </ul>
             <hr>
             <ul>
-            <li><a href = "/admin/clubs/[% data.club.ClubID %]/members/add">Add Member</a></li>
+            <li><a href = "/admin/club/[% data.club.ClubID %]/member/add">Add Member</a></li>
             </ul>
           </li>
 

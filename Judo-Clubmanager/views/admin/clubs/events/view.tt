@@ -12,7 +12,7 @@
             </ul>
             <hr>
             <ul class="links">
-            <li><a href = "/admin/clubs/[% event.ClubID %]/events/[% event.EventID %]/attendance">Attendance</a></li>
+            <li><a href = "/admin/club/[% event.ClubID %]/event/[% event.EventID %]/attendance">Attendance</a></li>
             </ul>
           </li>
 
