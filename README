@@ -8,14 +8,14 @@ TODO:
 
 * User is able to register
 * User is able to login
-:tick: * User is able to add a member
+:tick:#9745; * User is able to add a member
 * User is able to add a venue
-:tick: * User is able to create a session (at a venue)
-:tick: * User is able to mark a member as attending a session (at a venue)
-:tick: * User is able to record a members NGB BJA license number and expiry date
+:tick:#9745; * User is able to create a session (at a venue)
+:tick:#9745; * User is able to mark a member as attending a session (at a venue)
+:tick:#9745; * User is able to record a members NGB BJA license number and expiry date
 * User is able to use BJA membership card to register attendance at a session.
-:tick: * User is able to access a session and add multiple members
-:tick: * User is able to remove multiple people from attendance at event
+:tick:#9745; * User is able to access a session and add multiple members
+:tick:#9745; * User is able to remove multiple people from attendance at event
 * User is able to access a members page and add multiple sesisons
 * User is able to access a report of members who have not attended a session in the last x weeks
 * User is able to send a letter to a member who has not attended for x weeks
@@ -24,9 +24,9 @@ TODO:
 * User is able to record payment for term fees by member
 * User is able to record payment for competition entry fees by member
 * User is able to record payment for grading fees by member
-:tick: * User is able to create an event
+:tick:#9745; * User is able to create an event
 * User is able to record payment for event
-:tick: * User is able to record attendance at event
+:tick:#9745; * User is able to record attendance at event
 * User is able to record competition results for member (incl. text report)
 * User is able to record incomes received
 * User is able to record expenses paid
