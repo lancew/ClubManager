@@ -28,7 +28,7 @@
             <ul>
             [% FOREACH event IN events %]
                 <li>
-                    <a href="/admin/clubs/[% club_id %]/events/[% event.value.EventID %]">[% event.value.Name %]</a>
+                    [% event.value.EventDate %] <a href="/admin/clubs/[% club_id %]/events/[% event.value.EventID %]">[% event.value.Name %]</a>
 
                 </li>
             [% END %]

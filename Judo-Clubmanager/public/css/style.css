@@ -46,16 +46,16 @@ width: 175px;
 }
 
 #header, #about, #getting-started {
-padding-left: 75px;
+padding-left: 110px;
 padding-right: 30px;
 }
 
 
 #header {
-background-image: url("/images/logo_60_trans.png");
+background-image: url("/images/solent_logo.png");
 background-repeat: no-repeat;
 background-position: top left;
-height: 64px;
+height: 156px;
 }
 #header h1, #header h2 {margin: 0}
 #header h2 {

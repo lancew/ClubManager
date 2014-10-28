@@ -33,13 +33,22 @@ sub add {
     return %args;
 }
 
+sub attendees {
+    my $event_id = shift;
+    my $db = connect_db();
+    my $attendees = $db->selectall_hashref(
+        'SELECT MemberID from attendance WHERE EventID=' . $db->quote($event_id), 'MemberID'
+    );
+    return $attendees;
+}
+
 sub get {
     my $event_id = shift;
     my $db = connect_db();
-    my $member = $db->selectrow_hashref(
+    my $event = $db->selectrow_hashref(
         'SELECT * FROM Events WHERE EventID=' . $db->quote($event_id) );
 
-    return $member;
+    return $event;
 }
 
 1;

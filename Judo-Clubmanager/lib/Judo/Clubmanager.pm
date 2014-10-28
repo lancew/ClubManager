@@ -98,6 +98,49 @@ get '/admin/clubs/:club/events/:event_id' => require_role Admin => sub {
     { club_id => param('club'), event => $event };
 };
 
+get '/admin/clubs/:club/events/:event_id/attendance' => require_role Admin => sub {
+    my $event = Judo::Club::Event::get( param('event_id') );
+    my @members = Judo::Club::Member::list( param('club') );
+    my $attendees = Judo::Club::Event::attendees(param('event_id'));
+    template '/admin/clubs/events/attendance/view',
+    {
+        event => $event,
+        members => @members,
+        attendees => $attendees,
+    };
+};
+
+post '/admin/clubs/:club/events/:event_id/attendance' => require_role Admin => sub {
+    my %args = params();
+    my $attendees = Judo::Club::Event::attendees(param('event_id'));
+
+    for ( keys %args)
+    {
+        if($_ =~ /^\d+$/)
+        {
+            # Skip to next if already in the attendees list.
+            next if $_ ~~ $attendees;
+
+            Judo::Club::Member::attended(
+                EventID  => param('event_id'),
+                MemberID => $_,
+                );
+
+        }
+    }
+
+    my $event = Judo::Club::Event::get( param('event_id') );
+    my @members = Judo::Club::Member::list( param('club') );
+    my $attendees = Judo::Club::Event::attendees(param('event_id'));
+
+    template '/admin/clubs/events/attendance/view',
+    {
+        event => $event,
+        members => @members,
+        attendees => $attendees,
+        args => \%args,
+    };
+};
 
 
 # Database

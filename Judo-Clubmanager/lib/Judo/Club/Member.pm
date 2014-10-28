@@ -12,13 +12,20 @@ sub add {
     my %args = @_;
     $args{ClubID} = delete $args{club};
 
-
     Judo::Database::insert(
-        table    => 'members',
-        data => \%args
+        table => 'members',
+        data  => \%args,
     );
 
     return %args;
+}
+
+sub attended {
+    my %args = @_;
+    Judo::Database::insert(
+        table => 'attendance',
+        data  => \%args,
+    )
 }
 
 sub get {

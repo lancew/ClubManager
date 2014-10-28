@@ -1,0 +1,57 @@
+
+<div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Menu</h3>
+            <ul class="links">
+                <li><a href="/admin/clubs/[% club_id %]/events/add">Add Event</a></li>
+
+              <li><a href="/logout">Logout</a></li>
+
+            </ul>
+          </li>
+
+
+        </ul>
+
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Judo Clubmanager</h1>
+          <h2>Admin>Clubs</h2>
+        </div>
+
+[% USE Dumper %]
+
+        <div id="getting-started">
+            <h2>Event Attendance</h2>
+            <hr>
+            <h3>[% event.Name%] - [% event.EventDate%]</h3>
+            <p>[% event.Description %]</p>
+            <hr>
+            <form method='post'>
+            <ul>
+            [% FOREACH member IN members %]
+                <li>
+                    <input
+                        type=checkbox
+                        name='[% member.value.MemberID %]'
+                        [% val=member.value.MemberID%]
+                        [% IF attendees.$val %]checked[%END%]
+
+                    >
+                    [% attendees.$val.MemberID %]
+                    [% member.value.Surname %], [% member.value.Firstname%]
+                </li>
+            [% END %]
+            </ul>
+
+            <input type="submit">
+            </form>
+        </div>
+
+        </div>
+      </div>
+    </div>
