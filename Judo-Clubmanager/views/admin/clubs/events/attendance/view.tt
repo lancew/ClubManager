@@ -5,7 +5,7 @@
           <li>
             <h3>Menu</h3>
             <ul class="links">
-                <li><a href="/admin/clubs/[% club_id %]/events/add">Add Event</a></li>
+                <li><a href="/admin/club/[% event.ClubID %]/event/[% event.EventID %]">Back to event</a></li>
 
               <li><a href="/logout">Logout</a></li>
 
