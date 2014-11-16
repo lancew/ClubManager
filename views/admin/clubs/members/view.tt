@@ -12,8 +12,8 @@
             </ul>
             <hr>
             <ul class="links">
-            <li><a href = "/admin/club/[% club.ClubID %]/members">Members List</a></li>
-            <li><a href = "/admin/club/[% club.ClubID %]/member/add">Add Member</a></li>
+            <li><a href = "/admin/club/[% club_id %]/members">Members List</a></li>
+            <li><a href = "/admin/club/[% club_id %]/member/add">Add Member</a></li>
             </ul>
           </li>
 
@@ -39,6 +39,9 @@
             [% END %]
         </ul>
         
+        <form method="DELETE" >
+        <input type="submit" value="Delete" onclick="if (!confirm('Are you sure?')) return false;">
+        </form>
         </div>
 
         </div>

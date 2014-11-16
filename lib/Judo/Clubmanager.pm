@@ -62,6 +62,14 @@ get '/admin/club/:club/member/:member_id' => require_role Admin => sub {
     { club_id => param('club'), member => $member };
 };
 
+del '/admin/club/:club/member/:member_id' => require_role Admin => sub {
+    #my $member = Judo::Club::Member::del( param('member_id') );
+    warn 'here';
+    exit;
+    redirect "/admin/club/". param('club')."/members";
+    return;
+};
+
 post '/admin/club/:club/member/add' => require_role Admin => sub {
     my %args = params();
     my %club = Judo::Club::Member::add(%args);
@@ -80,16 +88,16 @@ get '/admin/club/:club/events' => require_role Admin => sub {
     };
 };
 
-get '/admin/club/:club/event/add' => require_role Admin => sub {
+get '/admin/club/:club/events/add' => require_role Admin => sub {
     template 'admin/clubs/events/add',
     {
         club_id => param('club'),
     };
 };
-post '/admin/club/:club/event/add' => require_role Admin => sub {
+post '/admin/club/:club/events/add' => require_role Admin => sub {
     my %args = params();
     my %event = Judo::Club::Event::add(%args);
-    template 'admin/clubs/event/add', { %args };
+    template 'admin/clubs/events/add', { %args };
 };
 
 get '/admin/club/:club/event/:event_id' => require_role Admin => sub {

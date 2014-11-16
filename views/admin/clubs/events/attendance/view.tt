@@ -15,6 +15,14 @@
 
         </ul>
 
+        <hr>
+              <h3>Add New Member:</h3>
+              <form method="post" action ="/admin/club/[%  event.ClubID %]/member/add" target="_blank">
+                First name:<input name='Firstname' type='text' value='[% Firstname %]'><br />
+                Surname:<input name='Surname' type='text'><br />
+                <input type="submit">
+              </form>
+
       </div>
 
       <div id="content">
@@ -22,8 +30,6 @@
           <h1>Judo Clubmanager</h1>
           <h2>Admin>Clubs</h2>
         </div>
-
-[% USE Dumper %]
 
         <div id="getting-started">
             <h2>Event Attendance</h2>
