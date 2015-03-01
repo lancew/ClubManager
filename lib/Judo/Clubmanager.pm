@@ -1,4 +1,8 @@
 package Judo::Clubmanager;
+
+use strict;
+use warnings;
+
 use Dancer ':syntax';
 
 use Dancer::Plugin::Auth::Extensible;

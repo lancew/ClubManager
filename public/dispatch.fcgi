@@ -1,4 +1,8 @@
 #!/usr/bin/env perl
+
+use strict;
+use warnings;
+
 use Dancer ':syntax';
 use FindBin '$RealBin';
 use Plack::Handler::FCGI;
