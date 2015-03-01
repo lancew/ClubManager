@@ -42,6 +42,10 @@ sub get {
     my $member = $db->selectrow_hashref(
         'SELECT * FROM Members WHERE MemberID=' . $db->quote($member_id) );
 
+    $member->{TotalSessions} = $db->selectrow_array(
+        'SELECT count(*) FROM Attendance WHERE MemberID=' . $db->quote($member_id) );
+
+
     return $member;
 }
 
