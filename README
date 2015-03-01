@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lancew/ClubManager.svg?branch=master)](https://travis-ci.org/lancew/ClubManager)
+
 Project to develop an open source Judo club management system.
 
 Contact: lw@judocoach.com
