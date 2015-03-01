@@ -9,9 +9,9 @@ $eumm_version =~ s/_//;
 
 WriteMakefile(
     NAME                => 'Judo::Clubmanager',
-    AUTHOR              => q{YOUR NAME <youremail@example.com>},
+    AUTHOR              => q{Lance Wicks <lw@judocoach.com>},
     VERSION_FROM        => 'lib/Judo/Clubmanager.pm',
-    ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
+    ABSTRACT            => 'Judo club management system',
     ($eumm_version >= 6.3001
       ? ('LICENSE'=> 'perl')
       : ()),
