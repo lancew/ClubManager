@@ -4,7 +4,15 @@ perl:
   - "5.14"
   - "5.12"
 before_install:
-    - "cpanm Dancer::Plugin::Auth::Extensible"
-    - "cpanm DBI"
-    - "cpanm DBIx::Migration"
-    - "cpanm Template"
+    - "cpanm --quiet --notest Dancer::Plugin::Auth::Extensible"
+    - "cpanm --quiet --notest DBI"
+    - "cpanm --quiet --notest DBIx::Migration"
+    - "cpanm --quiet --notest Template"
+    - "cpanm --quiet --notest Devel::Cover::Report::Coveralls"
+
+  script:
+     - PERL5OPT=-MDevel::Cover=-coverage,statement,branch,condition,path,subroutine prove -lrsv t
+     - cover
+
+  after_success:
+    - cover -report coveralls
