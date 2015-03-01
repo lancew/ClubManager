@@ -5,3 +5,4 @@ perl:
   - "5.12"
 before_install:
     - "cpanm Dancer::Plugin::Auth::Extensible"
+    - "cpanm DBI"
