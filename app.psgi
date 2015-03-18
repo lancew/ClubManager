@@ -3,6 +3,4 @@
 use strict;
 use warnings;
 
-use Dancer;
-use Judo::Clubmanager;
-dance;
+require 'bin/app.pl';
